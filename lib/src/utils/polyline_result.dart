@@ -1,6 +1,4 @@
 import '../../flutter_polyline_points.dart';
-import '../utils/trip_distance.dart';
-import '../utils/trip_duration.dart';
 
 /// description:
 /// project: flutter_polyline_points
@@ -16,19 +14,30 @@ class PolylineResult {
   /// list of decoded points
   List<PointLatLng> points;
 
-  /// Distance in text and meters
-  TripDistance distance;
-
-  /// Duration with text and seconds
-  TripDuration duration;
-
   /// the error message returned from google, if none, the result will be empty
   String? errorMessage;
+
+  /// list of decoded points
+  List<PointLatLng> alternatives;
+
+  String? distanceText;
+  int? distanceValue;
+  String? durationText;
+  int? durationValue;
+  String? endAddress;
+  String? startAddress;
+  String? overviewPolyline;
 
   PolylineResult(
       {this.status,
       this.points = const [],
+      this.alternatives = const [],
       this.errorMessage = "",
-      this.distance = const TripDistance("", 0),
-      this.duration = const TripDuration("", 0)});
+      this.distanceText,
+      this.distanceValue,
+      this.durationText,
+      this.durationValue,
+      this.endAddress,
+      this.startAddress,
+      this.overviewPolyline});
 }
